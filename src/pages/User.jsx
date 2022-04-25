@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import withAuth from "../components/hoc/withAuth";
 
-import Authen from "../hooks/Authen";
 function User() {
   return (
     <div w-full>
@@ -11,4 +11,4 @@ function User() {
   );
 }
 
-export default Authen(User);
+export default withAuth(User);

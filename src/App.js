@@ -12,8 +12,6 @@ import Main from "./components/Test/Main";
 import User from "./pages/User";
 import Admin from "./pages/Admin";
 
-import AdminRoute from "./routes/AdminRoute";
-
 function App() {
   return (
     <div>

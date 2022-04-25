@@ -1,23 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Authen from "../hooks/Authen";
-import { AuthContext } from "../hooks/Authen";
-
+import withAuth from "../components/hoc/withAuth";
 import Navbar from "../components/Navbar";
 
-const Btn = styled.button`
-  cursor: pointer;
-  transition: 0.5s all;
-  &:hover {
-    background-color: #cf09cf;
-    color: white;
-  }
-`;
 function Member() {
   const [items, setItems] = useState([]);
   const [employee, setEmployee] = useState([]);
 
-  const { email, role, verifyToken } = useContext(AuthContext);
+  console.log("Member");
 
   useEffect(() => {
     fetch("https://www.mecallapi.com/api/users")
@@ -44,9 +34,7 @@ function Member() {
         </div>
         <div className="flex justify-center ">
           <div className=" h-[60px] w-[70%] flex justify-between  mt-4  ">
-            <span className="  text-[25px]  w-[90px]    items-center">
-              {email}
-            </span>
+            <span className="  text-[25px]  w-[90px]    items-center"></span>
             <Btn className="border-2 rounded-md w-[120px]">Create</Btn>
           </div>
         </div>
@@ -95,4 +83,13 @@ function Member() {
   );
 }
 
-export default Authen(Member);
+const Btn = styled.button`
+  cursor: pointer;
+  transition: 0.5s all;
+  &:hover {
+    background-color: #cf09cf;
+    color: white;
+  }
+`;
+
+export default withAuth(Member);

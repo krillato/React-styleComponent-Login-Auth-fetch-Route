@@ -1,8 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
-import { AuthContext } from "../hooks/Authen";
-import Authen from "../hooks/Authen";
-
+import withAuth from "../components/hoc/withAuth";
 function Admin() {
   return (
     <div>
@@ -14,4 +12,4 @@ function Admin() {
   );
 }
 
-export default Authen(Admin);
+export default withAuth(Admin);

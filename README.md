@@ -21,3 +21,14 @@ Stack Overflow
 - ใช้ Api + Postman + MySQL
 - CRUD โดยใช้ axios และ fetch ในการ post get put delete ผ่าน api
 - Login เข้าสู่ระบบผ่าน API
+
+ปัญหาที่พบ
+
+- มีการ render page มากกว่า 1 ครั้ง ทำให้เกิดการ fetch หลายรอบ
+- เนื่องจากเป็นบัค react 18
+
+แก้ไขโดย
+
+- ลบ <React.StrictMode> ที่ครอบอยู่ของหน้า index และ app.js เนื่องจากทำให้มีการ render หลายครั้ง
+- การส่งค่า component สู่ component ที่อยู่คนละหน้า ไม่สามารถใช้ useContext(เหมาะกับการใช้งานแค่ใน page นั้น)
+  ควรใช้ redux ในการส่งค่าผ่าน root ต่างๆ

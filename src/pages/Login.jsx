@@ -74,11 +74,12 @@ function Login() {
         .then((data) => {
           if (data.status === "ok") {
             localStorage.setItem("token", data.token);
+            localStorage.setItem("status", data.role);
 
             if (data.role === "user") {
-              window.location = "User/dashboard";
+              window.location = "dashboard";
             } else if (data.role === "admin") {
-              window.location = "AdminStatus/Member";
+              window.location = "Member";
             }
             alert("login sucess");
           } else {
